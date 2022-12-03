@@ -23,7 +23,8 @@ defmodule PersonalWikiWeb.Router do
     live "/wiki_pages/new", WikiPageLive.Index, :new
     live "/wiki_pages/:id/edit", WikiPageLive.Index, :edit
 
-    live "/wiki_pages/:id", WikiPageLive.Show, :show
+    live "/wiki_pages/:id/show", WikiPageLive.Show, :show
+    live "/wiki_pages/:id", WikiPageLive.Render, :render
     live "/wiki_pages/:id/show/edit", WikiPageLive.Show, :edit
   end
 
