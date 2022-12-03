@@ -1,0 +1,36 @@
+<h1>Show Wiki page</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.wiki_page_show_path(@socket, :show, @wiki_page)}>
+    <.live_component
+      module={PersonalWikiWeb.WikiPageLive.FormComponent}
+      id={@wiki_page.id}
+      title={@page_title}
+      action={@live_action}
+      wiki_page={@wiki_page}
+      return_to={Routes.wiki_page_show_path(@socket, :show, @wiki_page)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @wiki_page.title %>
+  </li>
+
+  <li>
+    <strong>Page type:</strong>
+    <%= @wiki_page.page_type %>
+  </li>
+
+  <li>
+    <strong>Content:</strong>
+    <%= @wiki_page.content %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.wiki_page_show_path(@socket, :edit, @wiki_page), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.wiki_page_index_path(@socket, :index) %></span>

@@ -1,0 +1,28 @@
+<div>
+  <h2><%= @title %></h2>
+
+  <.form
+    let={f}
+    for={@changeset}
+    id="wiki_page-form"
+    phx-target={@myself}
+    phx-change="validate"
+    phx-submit="save">
+  
+    <%= label f, :title %>
+    <%= text_input f, :title %>
+    <%= error_tag f, :title %>
+  
+    <%= label f, :page_type %>
+    <%= select f, :page_type, Ecto.Enum.values(PersonalWiki.Wiki.WikiPage, :page_type), prompt: "Choose a value" %>
+    <%= error_tag f, :page_type %>
+  
+    <%= label f, :content %>
+    <%= textarea f, :content %>
+    <%= error_tag f, :content %>
+  
+    <div>
+      <%= submit "Save", phx_disable_with: "Saving..." %>
+    </div>
+  </.form>
+</div>

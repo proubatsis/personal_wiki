@@ -1,0 +1,43 @@
+<h1>Listing Wiki pages</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.wiki_page_index_path(@socket, :index)}>
+    <.live_component
+      module={PersonalWikiWeb.WikiPageLive.FormComponent}
+      id={@wiki_page.id || :new}
+      title={@page_title}
+      action={@live_action}
+      wiki_page={@wiki_page}
+      return_to={Routes.wiki_page_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Page type</th>
+      <th>Content</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="wiki_pages">
+    <%= for wiki_page <- @wiki_pages do %>
+      <tr id={"wiki_page-#{wiki_page.id}"}>
+        <td><%= wiki_page.title %></td>
+        <td><%= wiki_page.page_type %></td>
+        <td><%= wiki_page.content %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.wiki_page_show_path(@socket, :show, wiki_page) %></span>
+          <span><%= live_patch "Edit", to: Routes.wiki_page_index_path(@socket, :edit, wiki_page) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: wiki_page.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Wiki page", to: Routes.wiki_page_index_path(@socket, :new) %></span>
