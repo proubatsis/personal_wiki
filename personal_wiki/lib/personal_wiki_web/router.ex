@@ -19,6 +19,7 @@ defmodule PersonalWikiWeb.Router do
 
     get "/", PageController, :index
 
+    # Wiki Pages
     live "/wiki_pages", WikiPageLive.Index, :index
     live "/wiki_pages/new", WikiPageLive.Index, :new
     live "/wiki_pages/:id/edit", WikiPageLive.Index, :edit
@@ -26,6 +27,14 @@ defmodule PersonalWikiWeb.Router do
     live "/wiki_pages/:id/show", WikiPageLive.Show, :show
     live "/wiki_pages/:id", WikiPageLive.Render, :render
     live "/wiki_pages/:id/show/edit", WikiPageLive.Show, :edit
+
+    # Ingredients
+    live "/ingredients", IngredientLive.Index, :index
+    live "/ingredients/new", IngredientLive.Index, :new
+    live "/ingredients/:id/edit", IngredientLive.Index, :edit
+
+    live "/ingredients/:id", IngredientLive.Show, :show
+    live "/ingredients/:id/show/edit", IngredientLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
