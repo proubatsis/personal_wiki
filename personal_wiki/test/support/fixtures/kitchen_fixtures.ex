@@ -19,4 +19,18 @@ defmodule PersonalWiki.KitchenFixtures do
 
     ingredient
   end
+
+  @doc """
+  Generate a recipe.
+  """
+  def recipe_fixture(attrs \\ %{}) do
+    {:ok, recipe} =
+      attrs
+      |> Enum.into(%{
+        name: "some name"
+      })
+      |> PersonalWiki.Kitchen.create_recipe()
+
+    recipe
+  end
 end

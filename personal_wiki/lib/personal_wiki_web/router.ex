@@ -35,6 +35,14 @@ defmodule PersonalWikiWeb.Router do
 
     live "/ingredients/:id", IngredientLive.Show, :show
     live "/ingredients/:id/show/edit", IngredientLive.Show, :edit
+
+    # Recipes
+    live "/recipes", RecipeLive.Index, :index
+    live "/recipes/new", RecipeLive.Index, :new
+    live "/recipes/:id/edit", RecipeLive.Index, :edit
+
+    live "/recipes/:id", RecipeLive.Show, :show
+    live "/recipes/:id/show/edit", RecipeLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
