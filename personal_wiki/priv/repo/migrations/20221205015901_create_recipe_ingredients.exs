@@ -9,7 +9,6 @@ defmodule PersonalWiki.Repo.Migrations.CreateRecipeIngredients do
       add :recipe_id, references(:recipes, on_delete: :nothing, type: :binary_id)
       add :ingredient_id, references(:ingredients, on_delete: :nothing, type: :binary_id)
       add :measurement_unit, :string
-      add :alternate_measurement_units, {:array, :string}
 
       timestamps()
     end
