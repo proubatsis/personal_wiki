@@ -6,7 +6,7 @@ defmodule PersonalWiki.Repo.Migrations.CreateIngredients do
       add :id, :binary_id, primary_key: true
       add :name, :string
       add :plural_name, :string
-      add :acceptable_measurement_units, {:array, :string}
+      add :acceptable_measurement_units, {:array, :string}, default: []
 
       timestamps()
     end
