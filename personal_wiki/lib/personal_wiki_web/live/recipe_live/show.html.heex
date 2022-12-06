@@ -19,6 +19,14 @@
     <strong>Name:</strong>
     <%= @recipe.name %>
   </li>
+  <li>
+    <strong>Ingredients:</strong>
+    <ul>
+      <%= for recipe_ingredient <- @recipe.recipe_ingredients do %>
+        <li><%= recipe_ingredient_to_string(recipe_ingredient) %></li>
+      <% end %>
+    </ul>
+  </li>
 
 </ul>
 

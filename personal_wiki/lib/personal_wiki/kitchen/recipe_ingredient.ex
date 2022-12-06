@@ -7,8 +7,12 @@ defmodule PersonalWiki.Kitchen.RecipeIngredient do
   schema "recipe_ingredients" do
     field :amount, :float
     field :sequence_number, :integer
-    field :recipe, :binary_id
-    field :ingredient, :binary_id
+
+    field :measurement_unit, Ecto.Enum, values: [:unit, :g, :kg, :tsp, :tbsp, :cup]
+    field :alternate_measurement_units, {:array, Ecto.Enum}, values: [:unit, :g, :kg, :tsp, :tbsp, :cup]
+
+    belongs_to :recipe, PersonalWiki.Kitchen.Recipe
+    belongs_to :ingredient, PersonalWiki.Kitchen.Ingredient
 
     timestamps()
   end

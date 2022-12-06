@@ -7,6 +7,9 @@ defmodule PersonalWiki.Kitchen.Recipe do
   schema "recipes" do
     field :name, :string
 
+    has_many :recipe_ingredients, PersonalWiki.Kitchen.RecipeIngredient, on_delete: :delete_all
+    has_many :ingredients, through: [:recipe_ingredients, :ingredient]
+
     timestamps()
   end
 
