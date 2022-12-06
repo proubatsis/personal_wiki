@@ -9,7 +9,6 @@ defmodule PersonalWiki.Kitchen.RecipeIngredient do
     field :sequence_number, :integer
 
     field :measurement_unit, Ecto.Enum, values: [:unit, :g, :kg, :tsp, :tbsp, :cup]
-    field :alternate_measurement_units, {:array, Ecto.Enum}, values: [:unit, :g, :kg, :tsp, :tbsp, :cup]
 
     belongs_to :recipe, PersonalWiki.Kitchen.Recipe
     belongs_to :ingredient, PersonalWiki.Kitchen.Ingredient
