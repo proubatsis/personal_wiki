@@ -111,3 +111,64 @@ PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
   amount: 1.0,
   measurement_unit: :tsp,
 }
+
+# Create pizza recipe
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Recipe{name: "Pizza"}
+
+# Create pizza ingredients
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Water", plural_name: "Water"}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Yeast", plural_name: "Yeast"}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Olive oil", plural_name: "Olive oil"}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Tomato sauce", plural_name: "Tomato sauce"}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Mozzarella", plural_name: "Mozzarella"}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.Ingredient{name: "Pepperoni", plural_name: "Pepperoni"}
+
+# Create pizza recipe_ingredients
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Flour").id,
+  amount: 2.0,
+  measurement_unit: :cup,
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Water").id,
+  amount: 0.5,
+  measurement_unit: :cup,
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Salt").id,
+  amount: 1.0,
+  measurement_unit: :tsp
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Yeast").id,
+  amount: 0.5,
+  measurement_unit: :tsp
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Olive oil").id,
+  amount: 1.0,
+  measurement_unit: :tsp,
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Tomato sauce").id,
+  amount: 1.0,
+  measurement_unit: :cup,
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Mozzarella").id,
+  amount: 1.0,
+  measurement_unit: :cup,
+}
+PersonalWiki.Repo.insert! %PersonalWiki.Kitchen.RecipeIngredient{
+  recipe_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Recipe, name: "Pizza").id,
+  ingredient_id: PersonalWiki.Repo.get_by(PersonalWiki.Kitchen.Ingredient, name: "Pepperoni").id,
+  amount: 1.0,
+  measurement_unit: :cup,
+}
