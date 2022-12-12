@@ -15,7 +15,7 @@
 			"previewLimit": 50,
 			"server": "localhost",
 			"port": 5432,
-			"database": "postgres",
+			"database": "personal_wiki_dev",
 			"username": "postgres",
 			"password": "postgres"
 		}]
